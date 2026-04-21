@@ -2,15 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Code') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Cloning happens automatically in Jenkins'
-            }
-        }
-
-        stage('Build Step') {
-            steps {
-                echo 'Pipeline is working 🚀'
+                script {
+                    docker.build("ci-cd-app")
+                }
             }
         }
     }
