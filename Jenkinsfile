@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("ci-cd-app")
-                }
+                sh 'docker build -t ci-cd-app .'
             }
         }
     }
